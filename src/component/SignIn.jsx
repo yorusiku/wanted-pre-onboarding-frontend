@@ -17,14 +17,14 @@ export const SignIn = () => {
     if (token) return navigate("/todo");
   }, []);
 
-  const handleEmailChange = (event) => {
-    const newEmail = event.target.value;
+  const handleEmailChange = (e) => {
+    const newEmail = e.target.value;
     setEmail(newEmail);
     updateButtonDisabled(newEmail, password);
   };
 
-  const handlePasswordChange = (event) => {
-    const newPassword = event.target.value;
+  const handlePasswordChange = (e) => {
+    const newPassword = e.target.value;
     setPassword(newPassword);
     updateButtonDisabled(email, newPassword);
   };
@@ -79,7 +79,6 @@ export const SignIn = () => {
       >
         로그인
       </button>
-      <div>{jwtToken ? jwtToken : "fdsfasdf"}</div>
     </div>
   );
 };
