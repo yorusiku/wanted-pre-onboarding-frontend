@@ -8,3 +8,7 @@
 
     실행
     npm run start or npm start
+
+
+https://github.com/yorusiku/wanted-pre-onboarding-frontend/assets/66175465/b1501691-7ffa-496f-8b62-74b2a2301908
+
