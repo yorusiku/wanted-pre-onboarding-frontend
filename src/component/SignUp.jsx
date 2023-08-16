@@ -1,13 +1,20 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export const SignUp = () => {
+  let token = localStorage.getItem("jwtToken");
+
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
   let [buttonDisabled, setButtonDisabled] = useState(true);
-
   const navigate = useNavigate();
+
+  //Assignment 4
+  useEffect(() => {
+    console.log("token in signup", token);
+    if (token) return navigate("/todo");
+  }, []);
 
   const handleEmailChange = (event) => {
     const newEmail = event.target.value;
@@ -42,6 +49,7 @@ export const SignUp = () => {
         }
       );
       // Assignment 2
+      console.log(token);
       api.status === 201 ? navigate("/signin") : navigate("/signup");
     } catch (error) {
       console.log("error", error);

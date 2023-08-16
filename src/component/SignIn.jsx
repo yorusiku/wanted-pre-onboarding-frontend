@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -8,6 +8,14 @@ export const SignIn = () => {
   let [buttonDisabled, setButtonDisabled] = useState(true);
 
   const navigate = useNavigate();
+  let jwtToken = "";
+
+  //Assignment 4
+  useEffect(() => {
+    let token = localStorage.getItem("jwtToken");
+    console.log("token in signin", token);
+    if (token) return navigate("/todo");
+  }, []);
 
   const handleEmailChange = (event) => {
     const newEmail = event.target.value;
@@ -26,7 +34,6 @@ export const SignIn = () => {
     setButtonDisabled(!isValidEmail || !isValidPassword);
   };
   const loginId = async () => {
-    let jwtToken = "";
     try {
       const api = await axios.post(
         "https://www.pre-onboarding-selection-task.shop/auth/signin",
@@ -72,6 +79,7 @@ export const SignIn = () => {
       >
         로그인
       </button>
+      <div>{jwtToken ? jwtToken : "fdsfasdf"}</div>
     </div>
   );
 };
