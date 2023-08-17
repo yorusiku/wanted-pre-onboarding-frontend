@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { SignUp } from "../src/component/SignUp";
-import { SignIn } from "../src/component/SignIn";
-import { Todo } from "../src/component/Todo";
+import { SignUp } from "./component/SignUp";
+import { SignIn } from "./component/SignIn";
+import { Todo } from "./component/Todo";
 
 function App() {
   return (
